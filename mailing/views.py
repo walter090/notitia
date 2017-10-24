@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+
+def join_mailing_list(request):
+    return HttpResponse('Join the mailing list')
