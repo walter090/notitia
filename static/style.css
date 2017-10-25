@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:300');
+
+.main-body {
+    height: 100vh;
+}
+
+.cover{
+    overflow: hidden;
+}
+
+.main {
+
+}
+
+.normal-text{
+    font-family: "Rubik", sans-serif !important;
+}
+
+.vertical-center {
+    min-height: 100vh !important;
+    display: flex;
+    align-items: center;
+}
+
+input {
+    border-radius: 0 !important;
+    border: 1.5px darkgrey !important;
+    border-bottom-style: solid !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: black !important;
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button {
+    background-color: transparent;
+    color: darkgrey;
+    border-radius: 0 !important;
+    margin: 10px !important;
+}
+
+button:hover {
+    color: black !important;
+    transition: ease-in-out;
+    transition-duration: 0.5s;
+}
