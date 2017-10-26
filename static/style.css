@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Muli:200,300');
 
 .main-body {
     height: 100vh;
@@ -9,11 +9,17 @@
 }
 
 .main {
+    background-color: #050000;
+}
 
+.inverted {
+    color: white;
+    opacity: 0.8;
 }
 
 .normal-text{
-    font-family: "Rubik", sans-serif !important;
+    font-family: "Muli", sans-serif !important;
+    font-weight: 200 !important;
 }
 
 .vertical-center {
@@ -23,15 +29,19 @@
 }
 
 input {
+    font-family: "Muli", sans-serif !important;
+    font-weight: 300 !important;
+    color: whitesmoke !important;
     border-radius: 0 !important;
     border: 1.5px darkgrey !important;
     border-bottom-style: solid !important;
+    background-color: transparent;
 }
 
 .form-control:focus{
     box-shadow: none !important;
-    border-color: black !important;
-    transition: ease-in-out;
+    border-color: whitesmoke !important;
+    transition: ease;
     transition-duration: 0.5s;
 }
 
@@ -48,7 +58,6 @@ button {
 }
 
 button:hover {
-    color: black !important;
-    transition: ease-in-out;
-    transition-duration: 0.5s;
+    transition: 0.5s ease;
+    color: whitesmoke;
 }
