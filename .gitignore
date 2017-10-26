@@ -1,7 +1,6 @@
 .idea/
 *.pyc
 __pycache__
-/static
 local_settings.py
 *.pot
 *.log
