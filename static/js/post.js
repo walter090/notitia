@@ -3,7 +3,7 @@ $(document).ready(function () {
         event.preventDefault();
         $.ajax({
             type: 'POST',
-            url: '/join/',
+            url: '',
             data: {
                 csrfmiddlewaretoken: Cookies.get('csrftoken'),
                 email: $('#email').val()

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Notitia</title>
-    <link rel="stylesheet" href="{% static "style.css" %}">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
           integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
           crossorigin="anonymous">
@@ -18,6 +18,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script src="{% static "js/js.cookie.js" %}"></script>
+    <script src="{% static "js/post.js" %}"></script>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+
 </head>
 <body class="main-body cover">
 <div class="main">
@@ -26,23 +34,29 @@
         <div class="container-fluid">
             <div class="row justify-content-md-center">
                 <div class="col-md-8 text-center">
-                    <h1 class="inverted normal-text">Welcome to Notitia, join the mailing list for latest developments.</h1>
+                    <h1 class="inverted normal-text-header">Welcome to Notitia, join the mailing list for latest
+                        developments.</h1>
                 </div>
             </div>
             <div class="row justify-content-md-center align-item-center">
                 <div class="col-md-4 align-self-center">
-                    <form action="" method="post">
+                    <form action="" method="post" id="join-list">
                         {% csrf_token %}
                         <div class="form-group">
                             <label for="email"></label>
-                            <input type="email" class="form-control" id="email" placeholder="Email"
-                                   style="background-color: transparent">
+                            <input type="email" class="form-control normal-text" id="email" placeholder="Email"
+                                   style="background-color: transparent"
+                                   name="email_address"
+                                   required>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-default normal-text">Submit</button>
                             </div>
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="text-center row justify-content-md-center align-item-center">
+                <span id="message" class="normal-text col-md-4">{{ submitted }}</span>
             </div>
         </div>
     </div>
