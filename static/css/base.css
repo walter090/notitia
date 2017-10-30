@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Muli:200,300');
+
+body {
+    background-color: #050000;
+}
+
+#burger-1, #burger-2, #burger-3 {
+    width: 1.8em;
+    height: 0.2em;
+    background-color: whitesmoke;
+    margin-top: 0.4em;
+    border-radius: 2px;
+    transition: 0.5s ease;
+}
+
+.cross #burger-1 {
+    -webkit-transform: rotate(45deg) translate(0, 0.85em);
+    transform: rotate(45deg) translate(0, 0.85em);
+}
+
+.cross #burger-3 {
+    -webkit-transform: rotate(-45deg) translate(0, -0.85em);
+    transform: rotate(-45deg) translate(0, -0.85em);
+}
+
+.cross #burger-2 {
+    opacity: 0;
+}
+
+#hamburger {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1em;
+    margin-left: 1em;
+}
