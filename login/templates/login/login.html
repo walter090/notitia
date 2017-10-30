@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="vertical-center">
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                <div class="col-md-8 text-center" style="margin-bottom: 2em">
+                    <h1 class="inverted normal-text-header">Log in to your account</h1>
+                </div>
+            </div>
+            <div class="row justify-content-md-center align-item-center">
+                <div class="col-md-3 align-self-center">
+                    <form action="" method="post" id="join-list">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <input type="email" class="form-control normal-text" id="email" placeholder="Email"
+                                   style="background-color: transparent"
+                                   name="email"
+                                   required>
+                            <input type="password" class="form-control normal-text" id="password" placeholder="Password"
+                                   style="background-color: transparent; margin-top: 2em"
+                                   name="password"
+                                   required>
+                            <div class="text-center"
+                                 style="margin-top: 1em">
+                                <button type="submit"
+                                        class="btn btn-default normal-text">
+                                    Login
+                                </button>
+                                <br>
+                                <button class="btn btn-default normal-text"
+                                        style="margin-top: 0.5em">
+                                    <a>Sign up</a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center row justify-content-md-center align-item-center">
+                <span id="message" class="normal-text col-md-4">{{ submitted }}</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
