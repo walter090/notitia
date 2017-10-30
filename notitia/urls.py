@@ -21,5 +21,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', include('login.urls')),
     url(r'^welcome/', include('mailing.urls')),
-    url(r'^', RedirectView.as_view(url=r'welcome/', permanent=False))
+    # url(r'^', RedirectView.as_view(url=r'welcome/', permanent=False)),
+    url(r'^', include('login.urls')),
 ]
