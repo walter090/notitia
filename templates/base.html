@@ -20,20 +20,30 @@
 
     <script src="{% static 'js/base.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<div class="menu">
+<div class="menu-container">
     <div id="hamburger" class="">
         <div id="burger-1"></div>
         <div id="burger-2"></div>
         <div id="burger-3"></div>
     </div>
+    <div id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Your Account</a></li>
+        </ul>
+    </div>
 </div>
-{% block content %}
+<div id="content" class="">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+{% block footer %}
 
 {% endblock %}
-<footer class="col-lg-8">
-
-</footer>
 </body>
 </html>
