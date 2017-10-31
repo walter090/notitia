@@ -4,6 +4,10 @@ html {
     height: 100%;
 }
 
+button {
+    cursor: pointer;
+}
+
 body {
     background-color: #050000;
     height: 100%;
@@ -46,22 +50,24 @@ li a:hover {
     font-weight: 200;
     color: black;
     display: inline-block;
-
 }
 
 .cross #burger-1 {
     -webkit-transform: rotate(45deg) translate(0, 0.85em);
     transform: rotate(45deg) translate(0, 0.85em);
+    border-radius: 0;
 }
 
 .cross #burger-3 {
     -webkit-transform: rotate(-45deg) translate(0, -0.85em);
     transform: rotate(-45deg) translate(0, -0.85em);
+    border-radius: 0;
 }
 
 .cross #burger-2 {
     -webkit-transform: translate(8em, 0) rotate(-90deg);
     transform: translate(8em, 0) rotate(-90deg);
+    border-radius: 0;
 }
 
 #hamburger {
@@ -106,6 +112,7 @@ li a:hover {
     z-index: 10;
     color: white;
     padding-left: 4em;
+    padding-right: 4em;
     font-family: "Muli", sans-serif;
     font-weight: 200;
 }
