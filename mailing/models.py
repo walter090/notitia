@@ -1,6 +1,6 @@
 from django.db import models
 from django.core import validators
-from django.forms import ModelForm
+from django import forms
 
 
 class MailingListSubscriber(models.Model):
@@ -15,7 +15,7 @@ class MailingListSubscriber(models.Model):
         return self.email_address
 
 
-class MailingListForm(ModelForm):
+class MailingListForm(forms.ModelForm):
     class Meta:
         model = MailingListSubscriber
         fields = ['email_address']
