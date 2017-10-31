@@ -1,10 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $('#signup').submit(function (event) {
+                event.preventDefault();
+                $.ajax({
+                    type: 'POST',
+                    url: '',
+                    data: {
+                        csrfmiddlewaretoken: Cookies.get('csrftoken'),
+                        email: $('#email').val(),
+                        password: $('#password').val(),
+                        confirm_password: $('#confirm-password').val()
+                    },
 
-</body>
-</html>
+                    success: function () {
+                        $('#email').val('');
+                        document.getElementById('message').innerHTML =
+                            'You are now in the mailing list, thank you for your interest!';
+                    },
+                    error: function () {
+                        document.getElementById('message').innerHTML =
+                            'Sorry, we have encountered an error, maybe try again later?';
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <div class="vertical-center">
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                <div class="col-md-8 text-center" style="margin-bottom: 2em">
+                    <h1 class="inverted normal-text-header">Create an account</h1>
+                </div>
+            </div>
+            <div class="row justify-content-md-center align-item-center">
+                <div class="col-md-3 align-self-center">
+                    <form action="" method="post" id="signup">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email"></label>
+                            <input type="email" class="form-control normal-text" id="email" placeholder="Email"
+                                   style="background-color: transparent"
+                                   name="email"
+                                   required>
+                            <input type="password" class="form-control normal-text" id="password"
+                                   placeholder="Password"
+                                   style="background-color: transparent; margin-top: 2em"
+                                   name="password"
+                                   required>
+                            <input type="password" class="form-control normal-text" id="confirm-password"
+                                   placeholder="Confirm password"
+                                   style="background-color: transparent; margin-top: 2em"
+                                   name="confirm_password"
+                                   required>
+                            <div class="text-center"
+                                 style="margin-top: 1em">
+                                <button class="btn btn-default normal-text"
+                                        style="margin-top: 0.5em">
+                                    <a>Sign up</a>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="text-center row justify-content-md-center align-item-center">
+                <span id="message" class="normal-text col-md-4">{{ submitted }}</span>
+            </div>
+        </div>
+    </div>
+{% endblock %}
