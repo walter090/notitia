@@ -2,24 +2,39 @@
 {% load static %}
 {% block script %}
     <script>
-        function isValid() {
-            return $('#password').val() !== '' && $('#password').val() === $('#confirm_password').val();
+        function getValidationMessage() {
+            var message = '';
+            var passwordElement = $('#password');
+
+            if(passwordElement.val().length < 10) {
+                message += 'The password is too short.<br/>';
+            }
+
+            if(passwordElement.val() === '' || passwordElement.val() !== $('#confirm_password').val()) {
+                message += 'The passwords do not match.<br/>'
+            }
+
+            return message;
         }
 
         function checkValid() {
             var button = document.getElementById('submit_button');
-            if (isValid()) {
+            if (getValidationMessage() === '') {
                 button.removeAttribute('disabled');
             } else {
                 button.setAttribute('disabled', '');
             }
         }
 
-        function messageValid() {
-            if (!isValid()) {
-                document.getElementById('message').innerHTML = 'The passwords do not match.';
+        function checkMatch() {
+            var message = getValidationMessage();
+            if (message !== '') {
+                document.getElementById('message').innerHTML = message;
+            } else {
+                document.getElementById('message').innerHTML = '';
             }
         }
+
     </script>
 {% endblock %}
 {% block content %}
@@ -44,17 +59,16 @@
                                    placeholder="Password"
                                    style="background-color: transparent; margin-top: 2em"
                                    name="password"
-                                   onkeyup="checkValid()"
+                                   onkeyup="checkValid(); checkMatch();"
                                    required>
                             <input type="password" class="form-control normal-text" id="confirm_password"
                                    placeholder="Confirm password"
                                    style="background-color: transparent; margin-top: 2em"
                                    name="confirm_password"
-                                   onkeyup="checkValid()"
+                                   onkeyup="checkValid(); checkMatch();"
                                    required>
                             <div class="text-center"
-                                 style="margin-top: 1em"
-                                 onclick="messageValid()">
+                                 style="margin-top: 1em">
                                 <button class="btn btn-default normal-text"
                                         id="submit_button"
                                         style="margin-top: 0.5em"
