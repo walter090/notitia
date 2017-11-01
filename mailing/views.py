@@ -18,8 +18,10 @@ class JoinListView(FormView):
         sub.email_address = request.POST['email']
         sub.joined_date = datetime.datetime.now()
 
-        form = models.MailingListForm()
-        form.email_address = sub.email_address
+        form = models.MailingListForm({
+            'email_address': request.POST['email']
+        })
+        # form.email_address = sub.email_address
 
         if form.is_valid():
             sub.save()
@@ -28,6 +30,7 @@ class JoinListView(FormView):
                 'message': 'Save successful'
             })
         else:
+            print(form.errors)
             return JsonResponse({
                 'status': 'Failure',
                 'message': 'Save failed'
