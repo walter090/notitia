@@ -4,18 +4,18 @@ from django import forms
 
 
 class MailingListSubscriber(models.Model):
-    email_address = models.CharField(max_length=100,
+    email_address = models.CharField(max_length=200,
                                      validators=[validators.EmailValidator],
                                      null=False,
                                      blank=False,
                                      primary_key=True)
     joined_date = models.DateTimeField('date joined')
 
-    def ___str__(self):
+    def __str__(self):
         return self.email_address
 
 
 class MailingListForm(forms.ModelForm):
     class Meta:
         model = MailingListSubscriber
-        fields = ['email_address']
+        fields = ('email_address',)
