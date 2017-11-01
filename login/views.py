@@ -1,11 +1,11 @@
-import datetime
 import json
 
+from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.contrib.auth import authenticate, login
+
 from . import models, forms
-from django.contrib.auth import hashers
 
 
 class LoginView(FormView):
@@ -15,7 +15,19 @@ class LoginView(FormView):
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
-        raise NotImplementedError
+        login_email = request.POST['email']
+        login_password = request.POST['password']
+        user = authenticate(request,
+                            email=login_email,
+                            password=login_password)
+        if user is not None:
+            login(request, user=user)
+            return HttpResponseRedirect('/welcome/')
+        else:
+            return render(request, self.template_name,
+                          context={
+                              'submitted': 'User with this email address does not exist.',
+                          })
 
 
 class SignupView(FormView):
@@ -29,13 +41,16 @@ class SignupView(FormView):
 
         if signup_form.is_valid():
             data = signup_form.cleaned_data
-            user = models.User()
-            user.email = data['email']
-            user.password = hashers.make_password(data['password'])
-            user.member_since = datetime.date.today()
+            user = models.User.objects.create_user(email=data['email'],
+                                                   password=data['password'])
+            user.first_name = data['first_name']
+            user.last_name = data['last_name']
             user.save()
 
-            return HttpResponseRedirect('/login/')
+            return render(request, LoginView.template_name,
+                          context={
+                              'registered': 'Welcome!'
+                          })
 
         errors_dict = json.loads(signup_form.errors.as_json())
         error_message = ''
@@ -45,6 +60,7 @@ class SignupView(FormView):
             for error in errors_dict[error_type]:
                 error_message += error['message']
 
-        return render(request, self.template_name, context={
-            'submitted': error_message,
-        })
+        return render(request, self.template_name,
+                      context={
+                          'submitted': error_message,
+                      })
