@@ -8,10 +8,19 @@ button {
     cursor: pointer;
 }
 
+button:disabled {
+    opacity: 1 !important;
+}
+
 body {
     background-color: #050000;
     height: 100%;
     overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 li a {
