@@ -10,18 +10,23 @@
             </div>
             <div class="row justify-content-md-center align-item-center">
                 <div class="col-lg-4 align-self-center">
+                    <span id="registered_welcome">{{ registered }}</span>
                     <form action="" method="post" id="join-list">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="email"></label>
-                            <input type="email" class="form-control normal-text" id="email" placeholder="Email"
-                                   style="background-color: transparent"
-                                   name="email"
-                                   required>
-                            <input type="password" class="form-control normal-text" id="password" placeholder="Password"
-                                   style="background-color: transparent; margin-top: 2em"
-                                   name="password"
-                                   required>
+                            <div class="row">
+                                <input type="email" class="form-control normal-text" id="email" placeholder="Email"
+                                       style="background-color: transparent"
+                                       name="email"
+                                       required>
+                            </div>
+                            <div class="row">
+                                <input type="password" class="form-control normal-text" id="password"
+                                       placeholder="Password"
+                                       style="background-color: transparent; margin-top: 2em"
+                                       name="password"
+                                       required>
+                            </div>
                             <div class="text-center"
                                  style="margin-top: 2em">
                                 <button type="submit"
