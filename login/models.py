@@ -1,16 +1,17 @@
 from django.db import models
 from django.core import validators
-from notitia import settings
-from django.contrib.auth import hashers
 
 
 class User(models.Model):
     email = models.CharField(max_length=200,
-                             validators=[validators.EmailValidator(message='Please enter a valid email address')],
+                             validators=[validators.EmailValidator],
                              null=False,
-                             primary_key=True)
+                             blank=False,
+                             primary_key=True,
+                             unique=True)
     password = models.CharField(max_length=200,
-                                null=False)
+                                null=False,
+                                blank=False)
     member_since = models.DateField('date joined', null=True)
 
     def __str__(self):
