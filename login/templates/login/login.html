@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div class="row justify-content-md-center align-item-center">
-                <div class="col-md-3 align-self-center">
+                <div class="col-lg-4 align-self-center">
                     <form action="" method="post" id="join-list">
                         {% csrf_token %}
                         <div class="form-group">
@@ -23,15 +23,16 @@
                                    name="password"
                                    required>
                             <div class="text-center"
-                                 style="margin-top: 1em">
+                                 style="margin-top: 2em">
                                 <button type="submit"
                                         class="btn btn-default normal-text">
                                     Login
                                 </button>
                                 <br>
                                 <button class="btn btn-default normal-text"
-                                        style="margin-top: 0.5em">
-                                    <a>Sign up</a>
+                                        style="margin-top: 1em" disabled>
+                                    <a href="{% url 'signup' %}"
+                                       style="padding: inherit">Register</a>
                                 </button>
                             </div>
                         </div>

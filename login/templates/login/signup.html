@@ -68,12 +68,19 @@
                                    onkeyup="checkValid(); checkMatch();"
                                    required>
                             <div class="text-center"
-                                 style="margin-top: 1em">
+                                 style="margin-top: 2em">
                                 <button class="btn btn-default normal-text"
                                         id="submit_button"
-                                        style="margin-top: 0.5em"
                                         disabled>
-                                    <a>Sign up</a>
+                                    <a>Register</a>
+                                </button>
+                                <br>
+                                <button class="btn btn-default normal-text"
+                                        id="submit_button"
+                                        style="margin-top: 1em;"
+                                        disabled>
+                                    <a href="{% url 'login' %}"
+                                       style="padding: inherit">Log in</a>
                                 </button>
                             </div>
                         </div>
@@ -81,7 +88,7 @@
                 </div>
             </div>
             <div class="text-center row justify-content-md-center align-item-center">
-                <div id="message" class="normal-text col-md-4" style="color: red">{{ submitted }}</div>
+                <span id="message" class="normal-text col-md-4" style="color: red">{{ submitted }}</span>
             </div>
         </div>
     </div>
