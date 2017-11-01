@@ -6,11 +6,11 @@
             var message = '';
             var passwordElement = $('#password');
 
-            if(passwordElement.val().length < 10) {
+            if (passwordElement.val().length < 10) {
                 message += 'The password is too short.<br/>';
             }
 
-            if(passwordElement.val() === '' || passwordElement.val() !== $('#confirm_password').val()) {
+            if (passwordElement.val() === '' || passwordElement.val() !== $('#confirm_password').val()) {
                 message += 'The passwords do not match.<br/>'
             }
 
@@ -50,23 +50,39 @@
                     <form action="" method="post" id="signup">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="email"></label>
-                            <input type="email" class="form-control normal-text" id="email" placeholder="Email"
-                                   style="background-color: transparent"
-                                   name="email"
-                                   required>
-                            <input type="password" class="form-control normal-text" id="password"
-                                   placeholder="Password"
-                                   style="background-color: transparent; margin-top: 2em"
-                                   name="password"
-                                   onkeyup="checkValid(); checkMatch();"
-                                   required>
-                            <input type="password" class="form-control normal-text" id="confirm_password"
-                                   placeholder="Confirm password"
-                                   style="background-color: transparent; margin-top: 2em"
-                                   name="confirm_password"
-                                   onkeyup="checkValid(); checkMatch();"
-                                   required>
+                            <div class="row">
+                                <input type="email" class="form-control normal-text" id="email" placeholder="Email"
+                                       style="background-color: transparent"
+                                       name="email"
+                                       required>
+                            </div>
+                            <div class="row">
+                                <input type="password" class="form-control normal-text" id="password"
+                                       placeholder="Password"
+                                       style="background-color: transparent; margin-top: 2em"
+                                       name="password"
+                                       onkeyup="checkValid(); checkMatch();"
+                                       required>
+                            </div>
+                            <div class="row">
+                                <input type="password" class="form-control normal-text" id="confirm_password"
+                                       placeholder="Confirm password"
+                                       style="background-color: transparent; margin-top: 2em"
+                                       name="confirm_password"
+                                       onkeyup="checkValid(); checkMatch();"
+                                       required>
+                            </div>
+                            <div class="row">
+                                <input type="text" class="col-lg-6 form-control normal-text" id="first_name"
+                                       placeholder="First name (optional)"
+                                       style="background-color: transparent; margin-top: 2em;"
+                                       name="first_name">
+                                <input type="text" class="col-lg-6 form-control normal-text" id="last_name"
+                                       placeholder="Last name (optional)"
+                                       style="background-color: transparent; margin-top: 2em;"
+                                       name="last_name">
+                            </div>
+
                             <div class="text-center"
                                  style="margin-top: 2em">
                                 <button class="btn btn-default normal-text"
