@@ -2,31 +2,24 @@
 {% load static %}
 {% block script %}
     <script>
-        $(document).ready(function () {
-            $('#signup').submit(function (event) {
-                event.preventDefault();
-                $.ajax({
-                    type: 'POST',
-                    url: '',
-                    data: {
-                        csrfmiddlewaretoken: Cookies.get('csrftoken'),
-                        email: $('#email').val(),
-                        password: $('#password').val(),
-                        confirm_password: $('#confirm-password').val()
-                    },
+        function isValid() {
+            return $('#password').val() !== '' && $('#password').val() === $('#confirm_password').val();
+        }
 
-                    success: function () {
-                        $('#email').val('');
-                        document.getElementById('message').innerHTML =
-                            'You are now in the mailing list, thank you for your interest!';
-                    },
-                    error: function () {
-                        document.getElementById('message').innerHTML =
-                            'Sorry, we have encountered an error, maybe try again later?';
-                    }
-                });
-            });
-        });
+        function checkValid() {
+            var button = document.getElementById('submit_button');
+            if (isValid()) {
+                button.removeAttribute('disabled');
+            } else {
+                button.setAttribute('disabled', '');
+            }
+        }
+
+        function messageValid() {
+            if (!isValid()) {
+                document.getElementById('message').innerHTML = 'The passwords do not match.';
+            }
+        }
     </script>
 {% endblock %}
 {% block content %}
@@ -38,7 +31,7 @@
                 </div>
             </div>
             <div class="row justify-content-md-center align-item-center">
-                <div class="col-md-3 align-self-center">
+                <div class="col-lg-4 align-self-center">
                     <form action="" method="post" id="signup">
                         {% csrf_token %}
                         <div class="form-group">
@@ -51,16 +44,21 @@
                                    placeholder="Password"
                                    style="background-color: transparent; margin-top: 2em"
                                    name="password"
+                                   onkeyup="checkValid()"
                                    required>
-                            <input type="password" class="form-control normal-text" id="confirm-password"
+                            <input type="password" class="form-control normal-text" id="confirm_password"
                                    placeholder="Confirm password"
                                    style="background-color: transparent; margin-top: 2em"
                                    name="confirm_password"
+                                   onkeyup="checkValid()"
                                    required>
                             <div class="text-center"
-                                 style="margin-top: 1em">
+                                 style="margin-top: 1em"
+                                 onclick="messageValid()">
                                 <button class="btn btn-default normal-text"
-                                        style="margin-top: 0.5em">
+                                        id="submit_button"
+                                        style="margin-top: 0.5em"
+                                        disabled>
                                     <a>Sign up</a>
                                 </button>
                             </div>
@@ -69,7 +67,7 @@
                 </div>
             </div>
             <div class="text-center row justify-content-md-center align-item-center">
-                <span id="message" class="normal-text col-md-4">{{ submitted }}</span>
+                <div id="message" class="normal-text col-md-4" style="color: red">{{ submitted }}</div>
             </div>
         </div>
     </div>
