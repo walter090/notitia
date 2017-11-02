@@ -39,7 +39,7 @@
 }
 
 input {
-    color: whitesmoke !important;
+    color: black !important;
     border-radius: 0 !important;
     border: 1.5px darkgrey !important;
     border-bottom-style: solid !important;
@@ -48,7 +48,7 @@ input {
 
 .form-control:focus{
     box-shadow: none !important;
-    border-color: whitesmoke !important;
+    border-color: black !important;
     transition: 0.5s ease !important;
 }
 
@@ -65,7 +65,7 @@ button {
 }
 
 button:hover {
-    color: whitesmoke;
+    color: black;
 }
 
 #message {

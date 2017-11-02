@@ -13,7 +13,7 @@ button:disabled {
 }
 
 body {
-    background-color: #050000;
+    background-color: whitesmoke;
     height: 100%;
     overflow-x: hidden;
 }
@@ -29,7 +29,7 @@ li a {
     display: block;
     border: 1px transparent;
     border-bottom-style: solid;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     white-space: nowrap;
 }
 
@@ -48,7 +48,7 @@ li a:hover {
 #burger-1, #burger-2, #burger-3 {
     width: 1.8em;
     height: 0.2em;
-    background-color: whitesmoke;
+    background-color: black;
     margin-top: 0.4em;
     border-radius: 2px;
     transition: 0.5s ease;
@@ -63,13 +63,13 @@ li a:hover {
 
 .cross #burger-1 {
     -webkit-transform: rotate(45deg) translate(0, 0.85em);
-    transform: rotate(45deg) translate(0, 0.85em);
+    transform: rotate(405deg) translate(0, 0.85em);
     border-radius: 0;
 }
 
 .cross #burger-3 {
     -webkit-transform: rotate(-45deg) translate(0, -0.85em);
-    transform: rotate(-45deg) translate(0, -0.85em);
+    transform: rotate(-405deg) translate(0, -0.85em);
     border-radius: 0;
 }
 
@@ -77,6 +77,7 @@ li a:hover {
     -webkit-transform: translate(8em, 0) rotate(-90deg);
     transform: translate(8em, 0) rotate(-90deg);
     border-radius: 0;
+    background-color: whitesmoke;
 }
 
 #hamburger {
@@ -85,7 +86,7 @@ li a:hover {
     cursor: pointer;
     margin-top: 0;
     margin-left: 1em;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
 }
 
 #menu {
@@ -95,14 +96,14 @@ li a:hover {
     height: 100%;
     overflow: hidden;
     border-radius: 2px;
-    transition: 0.5s ease;
+    transition: 0.3s ease;
     background-color: whitesmoke;
 }
 
 #menu li {
     list-style: none;
     display: inline-block;
-    margin-top: 0.5em;
+    margin-top: 1em;
 }
 
 #menu ul {
@@ -115,11 +116,12 @@ li a:hover {
 }
 
 #content {
+    margin-top: -1.5em;
     width: 100%;
-    height: 100%;
-    transition: 0.5s ease;
-    z-index: 10;
-    color: white;
+    min-height: 100%;
+    overflow-x: hidden;
+    transition: 0.3s ease;
+    color: black;
     padding-left: 4em;
     padding-right: 4em;
     font-family: "Muli", sans-serif;
@@ -127,6 +129,12 @@ li a:hover {
 }
 
 #content.shimmy {
-    transform: translate(10em);
-    filter: blur(3px)
+    /*transform: translate(10em);*/
+    margin-left: 10em;
+    filter: blur(3px) brightness(0.3);
+    background-color: darkgrey;
+}
+
+.disable_all {
+    pointer-events: none;
 }
