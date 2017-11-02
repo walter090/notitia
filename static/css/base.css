@@ -51,14 +51,7 @@ li a:hover {
     background-color: black;
     margin-top: 0.4em;
     border-radius: 2px;
-    transition: 0.4s ease;
-}
-
-.menu-container {
-    font-family: "Muli", sans-serif;
-    font-weight: 200;
-    color: black;
-    display: inline-block;
+    transition: 0.3s ease;
 }
 
 .cross #burger-1 {
@@ -84,20 +77,23 @@ li a:hover {
     position: fixed;
     display: inline-block;
     cursor: pointer;
-    margin-top: 0;
+    margin-top: 1em;
     margin-left: 1em;
     transition: 0.3s ease;
 }
 
 #menu {
+    font-family: "Muli", sans-serif;
+    font-weight: 200;
     position: fixed;
-    margin-top: 2.5em;
+    margin-top: 3em;
     width: 0;
     height: 100%;
     overflow: hidden;
     border-radius: 2px;
     transition: 0.3s ease;
     background-color: whitesmoke;
+    display: block;
 }
 
 #menu li {
@@ -116,7 +112,7 @@ li a:hover {
 }
 
 #content {
-    margin-top: -1.5em;
+    /*margin-top: -1.5em;*/
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
@@ -130,9 +126,10 @@ li a:hover {
 
 #content.shimmy {
     /*transform: translate(10em);*/
-    margin-left: 10em;
+    margin-left: 15em;
     filter: blur(3px) brightness(0.3);
     background-color: darkgrey;
+    z-index: -1;
 }
 
 .disable_all {
