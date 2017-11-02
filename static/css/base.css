@@ -62,14 +62,14 @@ li a:hover {
 }
 
 .cross #burger-1 {
-    -webkit-transform: rotate(405deg) translate(0, 0.85em);
-    transform: rotate(405deg) translate(0, 0.85em);
+    -webkit-transform: rotate(45deg) translate(0, 0.85em);
+    transform: rotate(45deg) translate(0, 0.85em);
     border-radius: 0;
 }
 
 .cross #burger-3 {
-    -webkit-transform: rotate(-405deg) translate(0, -0.85em);
-    transform: rotate(-405deg) translate(0, -0.85em);
+    -webkit-transform: rotate(-45deg) translate(0, -0.85em);
+    transform: rotate(-45deg) translate(0, -0.85em);
     border-radius: 0;
 }
 
