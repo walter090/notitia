@@ -22,5 +22,6 @@ urlpatterns = [
     url(r'^login/', include('login.urls')),
     url(r'^welcome/', include('mailing.urls')),
     # url(r'^', RedirectView.as_view(url=r'welcome/', permanent=False)),
-    url(r'^', include('login.urls')),
+    url(r'^$', RedirectView.as_view(url=r'login/', permanent=False)),
+    url(r'^tinymce/', include('tinymce.urls')),
 ]
