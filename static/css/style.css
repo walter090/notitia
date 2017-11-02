@@ -9,13 +9,13 @@
 }
 
 .main {
-    background-color: #050000;
-    /*transition: 5s ease;*/
+    background-color: whitesmoke;
+    transition: 3s ease;
 }
 
-/*.main:hover{*/
-    /*background-color: whitesmoke;*/
-/*}*/
+.main_loaded{
+    background-color: #050000;
+}
 
 .inverted {
     color: white;
@@ -39,11 +39,12 @@
 }
 
 input {
-    color: black !important;
+    color: black;
     border-radius: 0 !important;
     border: 1.5px darkgrey !important;
     border-bottom-style: solid !important;
     background-color: transparent;
+    transition: 0.3s ease;
 }
 
 .form-control:focus{

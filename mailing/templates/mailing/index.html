@@ -21,7 +21,20 @@
 
     <script src="{% static 'js/js.cookie.js' %}"></script>
     <script src="{% static 'js/post.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            document.getElementsByClassName('main')[0].classList.add('main_loaded');
+        });
+    </script>
     <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <style>
+        input:focus {
+            border-color: whitesmoke !important;
+        }
+        button:hover {
+            color: whitesmoke !important;
+        }
+    </style>
 
 </head>
 <body class="main-body cover">
@@ -39,9 +52,8 @@
                     <form action="" method="post" id="join-list">
                         {% csrf_token %}
                         <div class="form-group">
-                            <label for="email"></label>
                             <input type="email" class="form-control normal-text" id="email" placeholder="Email"
-                                   style="background-color: transparent"
+                                   style="background-color: transparent; color: whitesmoke"
                                    name="email_address"
                                    required>
                             <div class="text-center">
