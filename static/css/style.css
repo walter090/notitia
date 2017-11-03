@@ -33,7 +33,12 @@
 }
 
 .vertical-center {
-    min-height: 100vh !important;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.vertical-center-modal {
     display: flex;
     align-items: center;
 }
@@ -59,18 +64,17 @@ input {
 }
 
 button {
-    background-color: transparent;
-    color: darkgrey;
+    background-color: transparent; !important;
+    color: #666666; !important;
     border-radius: 0 !important;
     transition: 0.2s ease !important;
 }
 
 button:hover {
-    color: black;
+    color: black; !important;
 }
 
 #message {
-    color: darkgrey;
     font-size: 1em;
     min-height: 3em;
 }
