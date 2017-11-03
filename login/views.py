@@ -26,7 +26,7 @@ class LoginView(FormView):
         else:
             return render(request, self.template_name,
                           context={
-                              'submitted': 'User with this email address does not exist.',
+                              'submitted': 'Email or password is not correct.',
                           })
 
 
