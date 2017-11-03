@@ -127,7 +127,7 @@ li a:hover {
 #content.shimmy {
     /*transform: translate(10em);*/
     margin-left: 15em;
-    filter: blur(3px) brightness(0.3);
+    filter: brightness(0.3);
     background-color: darkgrey;
     z-index: -1;
 }
