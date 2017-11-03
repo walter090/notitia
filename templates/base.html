@@ -24,23 +24,30 @@
     {% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
 </head>
 <body>
-{#<div class="menu-container">#}
-    <div id="hamburger" class="">
-        <div id="burger-1"></div>
-        <div id="burger-2"></div>
-        <div id="burger-3"></div>
-    </div>
-    <div id="menu">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="#">Your Account</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </div>
-{#</div>#}
+<div id="hamburger" class="">
+    <div id="burger-1"></div>
+    <div id="burger-2"></div>
+    <div id="burger-3"></div>
+</div>
+<div id="menu">
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#">Your Account</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+</div>
+<button type="button" class="btn"
+        data-toggle="modal" data-target="#login_modal"
+        style="position: absolute; right: 0; padding-top: 1em">
+    <span style="margin-right: 1em;">
+        <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
+    </span>
+</button>
+{% include 'login_form.html' %}
 <div id="content" class="">
     {% block content %}
 
