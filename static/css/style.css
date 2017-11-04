@@ -58,7 +58,7 @@ input {
     transition: 0.5s ease !important;
 }
 
-.btn:focus, .btn:active {
+button:focus, button:active {
     outline: none !important;
     box-shadow: none !important;
 }
