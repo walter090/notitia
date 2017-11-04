@@ -2,6 +2,12 @@
 {% load static %}
 {% block script %}
     <script>
+        $(document).ready(function () {
+            var quick_login = $('#quick_login');
+            quick_login.attr('disabled', '');
+            quick_login.attr('style', 'cursor: inherit;');
+            $('#quick_login_icon').attr('style', 'opacity: 0;');
+        });
         function getValidationMessage() {
             var message = '';
             var passwordElement = $('#password');
