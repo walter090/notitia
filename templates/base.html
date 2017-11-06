@@ -24,11 +24,13 @@
     {% endblock %}
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome/css/font-awesome.min.css' %}">
+
+    {% block style %}
+    {% endblock %}
 </head>
 <body>
-<div id="hamburger" class="">
+<div id="hamburger">
     <div id="burger-1"></div>
     <div id="burger-2"></div>
     <div id="burger-3"></div>
@@ -48,11 +50,24 @@
 </button>
 {% include 'login_form.html' %}
 <div id="content" class="">
-    {% block content %}
-
-    {% endblock %}
+    <nav class="navbar navbar-expand-sm">
+        <span class="navbar-brand" style="margin-left: 1rem">{{section_name}}</span>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="real-content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </div>
-
 {% block footer %}
 
 {% endblock %}
