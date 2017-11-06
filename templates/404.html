@@ -1,0 +1,55 @@
+{% load static %}
+<html>
+<head>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Muli:200,300,400|Roboto");
+
+        body {
+            background-image: url("{% static '404.gif' %}");
+            background-size: cover;
+        }
+
+        .centered {
+            position: relative;
+            text-align: center;
+            top: 25%;
+            font-family: "Muli", sans-serif;
+            color: white;
+        }
+
+        .big_header {
+            font-weight: 200;
+            font-size: 5em;
+            opacity: 0.7;
+        }
+
+        .small_header {
+            font-weight: 200;
+            font-size: 2.5em;
+            opacity: 0.7;
+        }
+
+        .go_home {
+            font-size: 2em;
+            font-weight: 200;
+            opacity: 0.7;
+            color: white;
+            text-decoration: none;
+            border-bottom: dotted;
+        }
+
+        .go_home:hover {
+            border-bottom: solid;
+            opacity: 0.9;
+        }
+    </style>
+    <title>Page not found</title>
+</head>
+<body>
+<div class="centered">
+    <h1 class="big_header">404</h1>
+    <h1 class="small_header">What you are looking for doesn't seem to exist.</h1>
+    <a class="go_home" href="https://walter090.github.io/">Alright, take me home</a>
+</div>
+</body>
+</html>
