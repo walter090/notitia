@@ -13,7 +13,8 @@ class Post(models.Model):
     publish_time = models.DateTimeField(_('publish time'),
                                         default=timezone.now)
     last_modified_time = models.DateTimeField(_('last modified time'),
-                                              null=True)
+                                              null=True,
+                                              blank=True)
     title = models.CharField(_('title'), max_length=200, blank=False)
     subtitle = models.CharField(_('subtitle'), max_length=400, blank=True)
     content_body = models.TextField(_('content'), blank=False, null=False)
@@ -25,13 +26,14 @@ class Post(models.Model):
         self.created_by = request.user
         self.title = title
         self.content_body = content_body
+        self.last_modified_time = self.publish_time
 
     def modify_post(self):
         self.last_modified_time = timezone.now()
 
     def clean(self):
         if self.title.isspace() or self.content_body.isspace():
-            raise ValidationError
+            raise ValidationError(message='Title and content cannot be empty')
         super(Post, self).clean()
 
     def save(self, *args, **kwargs):
