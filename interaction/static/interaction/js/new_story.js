@@ -19,7 +19,6 @@ $(document).ready(function () {
             text.style.height = text.scrollHeight + 'px';
         }
 
-        /* 0-timeout to get the already changed text */
         function delayedResize() {
             window.setTimeout(resize, 0);
         }
@@ -38,10 +37,31 @@ $(document).ready(function () {
             url: '',
             data: {
                 csrfmiddlewaretoken: Cookies.get('csrftoken'),
-                title: $('#title').val(),
-                subtitle: $('#subtitle').val(),
-                content_body: $('#content_body').val()
+                title: $('#title').html(),
+                subtitle: $('#subtitle').html(),
+                content_body: $('#content_body').html()
+            },
+            success: function (response) {
+                // Redirect to url sent by server
+                window.location.replace(response.url);
             }
         });
     });
 });
+
+function checkEmpty(element, className) {
+    // This function prevents the user from publishing if
+    // the required fields has only empty spaces.
+    var elementID = element.id;
+    var publishButton = document.getElementById('publish_button');
+    var elementContent = document.getElementById(elementID);
+    var storyElements = elementContent.getElementsByClassName(className);
+
+    [].forEach.call(storyElements, function (ele) {
+        if (ele.innerHTML.replace(/\s/g, '').length === 0) {
+            publishButton.setAttribute('disabled', '');
+        } else {
+            publishButton.removeAttribute('disabled');
+        }
+    });
+}
