@@ -1,76 +1,76 @@
-{% block content %}
-    <!-- Modal for panic free login -->
-    <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_modal_label"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header" style="border: 0;">
-                    <h5 class="modal-title" id="login_modal_label"></h5>
-                    <button type="button" class="close"
-                            data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="vertical-center-modal">
-                        <div class="container-fluid">
-                            <div class="row justify-content-md-center">
-                                <div class="col-md-8 text-center" style="margin-bottom: 2em">
-                                    <h1 class="normal-text-header">Sign in</h1>
-                                </div>
+{% load static %}
+<!-- Modal for panic free login -->
+<link rel="stylesheet" href="{% static 'login/style.css' %}">
+<div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="login_modal_label"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="border: 0;">
+                <h5 class="modal-title" id="login_modal_label"></h5>
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="vertical-center-modal">
+                    <div class="container-fluid">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-8 text-center" style="margin-bottom: 2em">
+                                <h1 class="normal-text-header">Sign in</h1>
                             </div>
-                            <br>
-                            <div class="row justify-content-md-center align-item-center">
-                                <div class="col-md-6 align-self-center">
-                                    <span id="registered_welcome">{{ registered }}</span>
-                                    <form action="" method="post" id="join-list">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <input type="email" class="form-control normal-text" id="email"
-                                                       placeholder="Email"
-                                                       style="background-color: transparent"
-                                                       name="email"
-                                                       required>
-                                            </div>
-                                            <div class="row">
-                                                <input type="password" class="form-control normal-text" id="password"
-                                                       placeholder="Password"
-                                                       style="background-color: transparent; margin-top: 2em"
-                                                       name="password"
-                                                       required>
-                                            </div>
-                                            <div class="text-center"
-                                                 style="margin-top: 2em">
-                                                <button type="submit"
-                                                        class="btn btn-default normal-text">
-                                                    Login
-                                                </button>
-                                                <br>
-                                                <button class="btn btn-default normal-text"
-                                                        style="margin-top: 1em" disabled>
-                                                    <a href="{% url 'signup' %}"
-                                                       style="padding: inherit">Register</a>
-                                                </button>
-                                            </div>
+                        </div>
+                        <br>
+                        <div class="row justify-content-md-center align-item-center">
+                            <div class="col-md-6 align-self-center">
+                                <span id="registered_welcome">{{ registered }}</span>
+                                <form action="" method="post" id="join-list">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <input type="email" class="form-control normal-text" id="email"
+                                                   placeholder="Email"
+                                                   style="background-color: transparent"
+                                                   name="email"
+                                                   required>
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class="row">
+                                            <input type="password" class="form-control normal-text" id="password"
+                                                   placeholder="Password"
+                                                   style="background-color: transparent; margin-top: 2em"
+                                                   name="password"
+                                                   required>
+                                        </div>
+                                        <div class="text-center"
+                                             style="margin-top: 2em">
+                                            <button type="submit"
+                                                    class="btn btn-default normal-text">
+                                                Login
+                                            </button>
+                                            <br>
+                                            <button class="btn btn-default normal-text"
+                                                    style="margin-top: 1em" disabled>
+                                                <a href="{% url 'signup' %}"
+                                                   style="padding: inherit">Register</a>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="text-center row justify-content-md-center align-item-center">
+                        </div>
+                        <div class="text-center row justify-content-md-center align-item-center">
                                 <span id="message" class="normal-text col-md-4"
                                       style="color: red;">{{ submitted }}</span>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button"
-                            class="btn normal-text"
-                            data-dismiss="modal">Cancel
-                    </button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn normal-text"
+                        data-dismiss="modal">Cancel
+                </button>
             </div>
         </div>
     </div>
-{% endblock %}
+</div>
