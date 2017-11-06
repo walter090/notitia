@@ -1,11 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400|Muli:200,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Muli:200,300');
 
 html {
     height: 100%;
-}
-
-button {
-    cursor: pointer;
 }
 
 button:disabled {
@@ -27,8 +23,8 @@ li a {
     text-decoration: none;
     color: inherit;
     display: block;
-    border: 1px transparent;
-    border-bottom-style: solid;
+    /*border: 1px transparent;*/
+    /*border-bottom-style: solid;*/
     transition: 0.3s ease;
     white-space: nowrap;
 }
@@ -40,26 +36,27 @@ a:hover {
 
 li a:hover {
     text-decoration: none;
-    border-bottom: solid;
-    border-width: 1px;
-    color: inherit;
+    /*border-bottom: solid;*/
+    /*border-width: 1px;*/
+    color: black;
 }
 
 #quick_login {
-    position: absolute;
+    margin-top: 0.75rem;
+    position: fixed;
     right: 0;
-    padding-top: 1em;
+    z-index: 1;
 }
 
 #quick_login_icon {
-    margin-right: 1em;
+    margin-right: 1rem;
 }
 
 #burger-1, #burger-2, #burger-3 {
-    width: 1.8em;
-    height: 0.2em;
+    width: 1.8rem;
+    height: 0.2rem;
     background-color: black;
-    margin-top: 0.4em;
+    margin-top: 0.4rem;
     border-radius: 2px;
     transition: 0.3s ease;
 }
@@ -84,19 +81,20 @@ li a:hover {
 }
 
 #hamburger {
-    position: fixed;
-    display: inline-block;
+    position: absolute;
+    display: block;
     cursor: pointer;
-    margin-top: 1em;
-    margin-left: 1.5em;
+    margin-top: 0.75rem;
+    margin-left: 1.5rem;
     transition: 0.3s ease;
+    z-index: 1;
 }
 
 #menu {
     font-family: "Muli", sans-serif;
     font-weight: 200;
     position: fixed;
-    margin-top: 3em;
+    margin-top: 3rem;
     width: 0;
     height: 100%;
     overflow: hidden;
@@ -109,39 +107,76 @@ li a:hover {
 #menu li {
     list-style: none;
     display: inline-block;
-    margin-top: 1em;
+    margin-top: 1rem;
 }
 
 #menu ul {
-    margin-top: 1em;
-    padding-left: 1.5em;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
 }
 
 .expose#menu {
-    width: 10em;
+    width: 10rem;
 }
 
 #content {
-    /*margin-top: -1.5em;*/
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
     transition: 0.3s ease;
     color: black;
-    padding-left: 4em;
-    padding-right: 4em;
     font-family: "Muli", sans-serif;
     font-weight: 200;
 }
 
 #content.shimmy {
     /*transform: translate(10em);*/
-    margin-left: 15em;
+    margin-left: 15rem;
     filter: brightness(0.3);
     background-color: darkgrey;
-    z-index: -1;
 }
 
-.disable_all {
+#real-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.navbar {
+    padding-left: 4rem;
+}
+
+.disable_all input {
     pointer-events: none;
+}
+
+.disable_all button {
+    pointer-events: none;
+}
+
+.disable_all a {
+    pointer-events: none;
+}
+
+
+.form-control:focus{
+    box-shadow: none !important;
+    border-color: black !important;
+    transition: 0.5s ease !important;
+    background-color: transparent; !important;
+}
+
+button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button {
+    background-color: transparent; !important;
+    color: #666666; !important;
+    border-radius: 0 !important;
+    transition: 0.2s ease !important;
+}
+
+button:hover {
+    color: black; !important;
 }
