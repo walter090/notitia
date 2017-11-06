@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'tinymce',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'mailing.apps.MailingConfig',
     'interaction.apps.InteractionConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
