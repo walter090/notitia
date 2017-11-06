@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import RedirectView
+
+from . import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,4 +27,5 @@ urlpatterns = [
     # url(r'^', RedirectView.as_view(url=r'welcome/', permanent=False)),
     url(r'^$', RedirectView.as_view(url=r'login/', permanent=False)),
     url(r'^tinymce/', include('tinymce.urls')),
-]
+    url(r'^new-story/', include('interaction.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
