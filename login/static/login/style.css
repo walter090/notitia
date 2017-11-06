@@ -1,5 +1,5 @@
 .main-body {
-    height: 100vh;
+    height: 100%;
 }
 
 .cover{
@@ -22,12 +22,12 @@
 
 .normal-text-header{
     font-family: "Muli", sans-serif !important;
-    font-weight: 200 !important;
+    font-weight: 300 !important;
 }
 
 .normal-text {
     font-family: "Muli", sans-serif !important;
-    font-weight: 300 !important;
+    font-weight: 400 !important;
 }
 
 .vertical-center {
