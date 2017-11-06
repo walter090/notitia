@@ -43,7 +43,11 @@ $(document).ready(function () {
             },
             success: function (response) {
                 // Redirect to url sent by server
-                window.location.replace(response.url);
+                if(response.all_clear){
+                    window.location.replace(response.url);
+                } else {
+                    document.getElementById('error_messages').innerHTML = response.messages;
+                }
             }
         });
     });
