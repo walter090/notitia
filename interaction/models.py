@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.utils import timezone
@@ -19,3 +20,20 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+    def make_new_post(self, request, title, content_body):
+        self.created_by = request.user
+        self.title = title
+        self.content_body = content_body
+
+    def modify_post(self):
+        self.last_modified_time = timezone.now()
+
+    def clean(self):
+        if self.title.isspace() or self.content_body.isspace():
+            raise ValidationError
+        super(Post, self).clean()
+
+    def save(self, *args, **kwargs):
+        self.full_clean()
+        super(Post, self).save(*args, **kwargs)
