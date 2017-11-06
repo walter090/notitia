@@ -26,7 +26,7 @@
             document.getElementsByClassName('main')[0].classList.add('main_loaded');
         });
     </script>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "login/style.css" %}">
     <style>
         input:focus {
             border-color: whitesmoke !important;
@@ -50,7 +50,7 @@
             <div class="row justify-content-md-center align-item-center">
                 <div class="col-md-4 align-self-center">
                     <form action="" method="post" id="join-list">
-                        {% csrf_token %}
+{#                        {% csrf_token %}#}
                         <div class="form-group">
                             <input type="email" class="form-control normal-text" id="email" placeholder="Email"
                                    style="background-color: transparent; color: whitesmoke"
