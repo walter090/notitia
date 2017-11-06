@@ -7,18 +7,23 @@
     <script src="{% static 'interaction/js/new_story.js' %}"></script>
 {% endblock %}
 {% block content %}
+    {% include template_file %}
     <div class="container-fluid">
         <div class="row justify-content-md-center">
-            <div class="col-lg-8" style="margin-bottom: 1rem">
+            <div class="col-lg-8"
+                 style="margin-bottom: 1rem"
+                 id="story_input"
+                 onkeyup="checkEmpty(this, 'story_required')">
                 <div class="publish_menu row pull-right">
                     <button type="submit"
                             id="publish_button"
-                            class="btn btn-default normal-text">
+                            class="btn btn-default normal-text"
+                            disabled>
                         Publish
                     </button>
                 </div>
                 <div class="row">
-                    <div class="form-control normal-text story"
+                    <div class="form-control normal-text story story_required"
                          id="title"
                          contentEditable="true"
                          data-text="Title"></div>
@@ -30,7 +35,7 @@
                          id="subtitle"></div>
                 </div>
                 <div class="row">
-                    <div class="form-control story"
+                    <div class="form-control story story_required"
                          contentEditable="true"
                          id="content_body"
                          data-text="Write something..."></div>
