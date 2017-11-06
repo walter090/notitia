@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Muli:200,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500|Muli:200,300,400');
+
+::selection {
+    background: black;
+    color: white;
+}
 
 html {
     height: 100%;
-}
-
-button:disabled {
-    opacity: 1 !important;
 }
 
 body {
@@ -17,6 +18,10 @@ body {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+#menu ul {
+    height: 100%;
 }
 
 li a {
@@ -81,7 +86,7 @@ li a:hover {
 }
 
 #hamburger {
-    position: absolute;
+    position: fixed;
     display: block;
     cursor: pointer;
     margin-top: 0.75rem;
@@ -92,7 +97,7 @@ li a:hover {
 
 #menu {
     font-family: "Muli", sans-serif;
-    font-weight: 200;
+    font-weight: 400;
     position: fixed;
     margin-top: 3rem;
     width: 0;
@@ -178,5 +183,13 @@ button {
 }
 
 button:hover {
-    color: black; !important;
+    color: black;
+}
+
+button:disabled {
+    cursor: inherit;
+}
+
+button:disabled:hover {
+    color: #666666;
 }
