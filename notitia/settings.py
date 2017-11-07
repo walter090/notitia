@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'login.apps.LoginConfig',
     'mailing.apps.MailingConfig',
     'interaction.apps.InteractionConfig',
-    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
