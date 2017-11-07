@@ -41,7 +41,6 @@ class Post(models.Model):
         super(Post, self).clean()
 
     def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
         self.full_clean()
-        super(Post, self).save(*args, **kwargs)
-        self.slug = '{0}/{1}'.format(self.id, slugify(self.title))
         super(Post, self).save(*args, **kwargs)
