@@ -1,9 +1,10 @@
 import json
 
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
+from django.utils.translation import ugettext as _
 
 from . import models, forms
 
@@ -41,12 +42,11 @@ class SignupView(FormView):
 
         if signup_form.is_valid():
             data = signup_form.cleaned_data
-            user = models.User.objects.create_user(email=data['email'],
-                                                   password=data['password'])
-            user.first_name = data['first_name']
-            user.last_name = data['last_name']
-            user.save()
-
+            models.User.objects.create_user(email=data['email'],
+                                            password=data['password'],
+                                            first_name=data['first_name'],
+                                            last_name=data['last_name'])
+            # user.save()
             return render(request, LoginView.template_name,
                           context={
                               'registered': 'Welcome!'
@@ -62,5 +62,10 @@ class SignupView(FormView):
 
         return render(request, self.template_name,
                       context={
-                          'submitted': error_message,
+                          'submitted': _(error_message),
                       })
+
+
+class AccountView(FormView):
+    def get(self, request, *args, **kwargs):
+        raise NotImplementedError

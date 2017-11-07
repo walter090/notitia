@@ -16,10 +16,10 @@ class SignupForm(forms.ModelForm):
                                max_length=200)
     first_name = forms.CharField(label=_('first name'),
                                  max_length=200,
-                                 required=False)
+                                 required=True)
     last_name = forms.CharField(label=_('last name'),
                                 max_length=200,
-                                required=False)
+                                required=True)
 
     class Meta:
         model = User

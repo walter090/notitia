@@ -20,11 +20,9 @@ class User(AbstractBaseUser, PermissionsMixin):
                                 null=False,
                                 blank=False)
     first_name = models.CharField(_('first_name'),
-                                  max_length=200,
-                                  blank=True)
+                                  max_length=200)
     last_name = models.CharField(_('last name'),
-                                 max_length=200,
-                                 blank=True)
+                                 max_length=200)
     member_since = models.DateField(_('date joined'), null=True)
     is_staff = models.BooleanField(
         _('staff status'),
@@ -33,7 +31,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     )
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['password']
+    REQUIRED_FIELDS = ['password', 'first_name', 'last_name']
 
     objects = UserManager()
 

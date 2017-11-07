@@ -83,13 +83,15 @@
                             </div>
                             <div class="row">
                                 <input type="text" class="col-lg-6 form-control normal-text" id="first_name"
-                                       placeholder="First name (optional)"
+                                       placeholder="First name"
                                        style="background-color: transparent; margin-top: 2em;"
-                                       name="first_name">
+                                       name="first_name"
+                                       required>
                                 <input type="text" class="col-lg-6 form-control normal-text" id="last_name"
-                                       placeholder="Last name (optional)"
+                                       placeholder="Last name"
                                        style="background-color: transparent; margin-top: 2em;"
-                                       name="last_name">
+                                       name="last_name"
+                                       required>
                             </div>
 
                             <div class="text-center"
@@ -102,8 +104,7 @@
                                 <br>
                                 <button class="btn btn-default normal-text"
                                         id="submit_button"
-                                        style="margin-top: 1em;"
-                                        disabled>
+                                        style="margin-top: 1em;">
                                     <a href="{% url 'login' %}"
                                        style="padding: inherit">Already have an account? Log in</a>
                                 </button>
