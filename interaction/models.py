@@ -20,6 +20,7 @@ class Post(models.Model):
     title = models.TextField(_('title'), blank=False)
     slug = models.SlugField(_('slug'), unique=True, null=True, blank=True)
     subtitle = models.TextField(_('subtitle'), blank=True)
+    tldr = models.TextField(_('tl;dr'), blank=True)
     content_body = models.TextField(_('content'), blank=False, null=False)
 
     def __str__(self):

@@ -41,6 +41,7 @@ class MakePostView(FormView):
                             title=data['title'],
                             content_body=data['content_body'])
         story.subtitle = data['subtitle']
+        story.tldr = data['tldr']
         messages = []
         try:
             story.save()
@@ -57,4 +58,3 @@ class MakePostView(FormView):
                 'url': '/new-story/',
                 'all_clear': False,
             })
-

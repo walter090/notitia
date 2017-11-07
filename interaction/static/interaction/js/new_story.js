@@ -39,6 +39,7 @@ $(document).ready(function () {
                 csrfmiddlewaretoken: Cookies.get('csrftoken'),
                 title: $('#title').html(),
                 subtitle: $('#subtitle').html(),
+                tldr: $('#tldr').html(),
                 content_body: $('#content_body').html()
             },
             success: function (response) {

@@ -19,7 +19,7 @@
     font-weight: 500;!important;
 }
 
-#content_body {
+#content_body, #tldr {
     font-family: "Roboto", sans-serif;!important;
     font-weight: 400;!important;
 }
