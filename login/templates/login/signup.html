@@ -58,7 +58,7 @@
                 <div class="col-md-4 align-self-center">
                     <form action="" method="post" id="signup">
                         {% csrf_token %}
-                        <div class="form-group">
+                        <div class="form-group" onkeyup="checkEmpty(this, 'name', 'submit_button')">
                             <div class="row">
                                 <input type="email" class="form-control normal-text" id="email" placeholder="Email"
                                        style="background-color: transparent; margin-top: 3em;"
@@ -82,12 +82,12 @@
                                        required>
                             </div>
                             <div class="row">
-                                <input type="text" class="col-lg-6 form-control normal-text" id="first_name"
+                                <input type="text" class="col-lg-6 form-control normal-text name" id="first_name"
                                        placeholder="First name"
                                        style="background-color: transparent; margin-top: 2em;"
                                        name="first_name"
                                        required>
-                                <input type="text" class="col-lg-6 form-control normal-text" id="last_name"
+                                <input type="text" class="col-lg-6 form-control normal-text name" id="last_name"
                                        placeholder="Last name"
                                        style="background-color: transparent; margin-top: 2em;"
                                        name="last_name"
