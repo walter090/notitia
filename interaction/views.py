@@ -40,8 +40,8 @@ class MakePostView(FormView):
         story.make_new_post(request=request,
                             title=data['title'],
                             content_body=data['content_body'])
-        story.subtitle = data['subtitle']
-        story.tldr = data['tldr']
+        story.subtitle = data['subtitle'].strip()
+        story.tldr = data['tldr'].strip()
         messages = []
         try:
             story.save()
