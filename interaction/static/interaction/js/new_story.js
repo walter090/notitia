@@ -53,20 +53,3 @@ $(document).ready(function () {
         });
     });
 });
-
-function checkEmpty(element, className) {
-    // This function prevents the user from publishing if
-    // the required fields has only empty spaces.
-    var elementID = element.id;
-    var publishButton = document.getElementById('publish_button');
-    var elementContent = document.getElementById(elementID);
-    var storyElements = elementContent.getElementsByClassName(className);
-
-    [].forEach.call(storyElements, function (ele) {
-        if (ele.innerHTML.replace(/\s/g, '').length === 0) {
-            publishButton.setAttribute('disabled', '');
-        } else {
-            publishButton.removeAttribute('disabled');
-        }
-    });
-}

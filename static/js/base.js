@@ -18,3 +18,20 @@ $(document).ready(function () {
         event.stopPropagation();
     })
 });
+
+function checkEmpty(className, targetID) {
+    // This function prevents the user from publishing if
+    // the required fields has only empty spaces.
+    // var elementID = element.id;
+    var publishButton = document.getElementById(targetID);
+    // var elementContent = document.getElementById(elementID);
+    var storyElements = document.getElementsByClassName(className);
+
+    [].forEach.call(storyElements, function (ele) {
+        if (ele.innerHTML.replace(/\s/g, '').length === 0) {
+            publishButton.setAttribute('disabled', '');
+        } else {
+            publishButton.removeAttribute('disabled');
+        }
+    });
+}
