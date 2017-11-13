@@ -26,7 +26,10 @@ class LoginView(FormView):
                             password=login_password)
         if user is not None:
             login(request, user=user)
-            return HttpResponseRedirect('/welcome/')
+            return render(request, kwargs['target_template'],
+                          context={
+                              'section_name': kwargs['section_name'],
+                          })
         else:
             return render(request, self.template_name,
                           context={
@@ -79,6 +82,7 @@ class AccountView(FormView):
         return render(request, self.template_name,
                       context={
                           'section_name': 'Account',
+                          'modal_template': 'account_modal.html',
                       })
 
     def post(self, request, *args, **kwargs):
