@@ -1,7 +1,7 @@
 import json
 
 from django.http import HttpResponseRedirect
-from django.views.generic import FormView, TemplateView
+from django.views.generic import FormView
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
@@ -13,7 +13,10 @@ class LoginView(FormView):
     template_name = 'login/login.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        return render(request, self.template_name,
+                      context={
+                          'section_name': 'Sign in'
+                      })
 
     def post(self, request, *args, **kwargs):
         login_email = request.POST['email']
@@ -35,7 +38,10 @@ class SignupView(FormView):
     template_name = 'login/signup.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        return render(request, self.template_name,
+                      context={
+                          'section_name': 'Register',
+                      })
 
     def post(self, request, *args, **kwargs):
         signup_form = forms.SignupForm(request.POST)
@@ -67,5 +73,13 @@ class SignupView(FormView):
 
 
 class AccountView(FormView):
+    template_name = 'login/account.html'
+
     def get(self, request, *args, **kwargs):
+        return render(request, self.template_name,
+                      context={
+                          'section_name': 'Account',
+                      })
+
+    def post(self, request, *args, **kwargs):
         raise NotImplementedError
