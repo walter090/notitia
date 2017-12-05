@@ -25,7 +25,11 @@ class LoginView(FormView):
                             password=login_password)
         if user is not None:
             login(request, user=user)
-            return redirect(request.GET.get('next', ''))
+            request.session['login_toggle'] = '/account/logout'
+            request.session['login_toggle_label'] = 'Sign out'
+            request.session['login_user'] = str(user)
+            request.session['login_message'] = 'You are signed in.'
+            return redirect(request.GET.get('next', 'home'))
         else:
             return render(request, self.template_name,
                           context={
@@ -89,11 +93,3 @@ class AccountView(FormView):
 
     def post(self, request, *args, **kwargs):
         raise NotImplementedError
-
-
-# class MasterView(object):
-#     """
-#     This view should handle core tasks of all views.
-#     """
-#     # TODO Implement a master view that all views inherit from.
-#     raise NotImplementedError
