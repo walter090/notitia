@@ -14,26 +14,18 @@ class MakePostView(FormView):
     template_name = 'interaction/make_post.html'
 
     def get(self, request, *args, **kwargs):
-        authorized = request.user.is_authenticated
         full_name = request.user.get_full_name()
 
-        if authorized:
-            status = 'You are logged in.'
-            name = full_name if not full_name.isspace() else request.user.email
-            template_file = 'account_modal.html'
-            return render(request, self.template_name,
-                          context={
-                              'section_name': _('Draft'),
-                              'logged_in': _(status),
-                              'name': name,
-                              'template_file': template_file,
-                          })
-        else:
-            request.session['target_template'] = self.template_name
-            return render(request, 'login/login.html',
-                          context={
-                              'section_name': _('Sign in'),
-                          })
+        status = 'You are logged in.'
+        name = full_name if not full_name.isspace() else request.user.email
+        template_file = 'account_modal.html'
+        return render(request, self.template_name,
+                      context={
+                          'section_name': _('Draft'),
+                          'logged_in': _(status),
+                          'name': name,
+                          'template_file': template_file,
+                      })
 
     def post(self, request, *args, **kwargs):
         data = request.POST
