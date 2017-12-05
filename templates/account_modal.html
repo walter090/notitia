@@ -31,9 +31,9 @@
                                         {{ request.session.login_user }}
                                     </span>
                                 </div>
-                                <div class="text-center row"
-                                     style="margin-top: 2em">
-                                    <button class="btn btn-default normal-text">
+                                <div style="text-align: center;">
+                                    <button class="btn btn-default normal-text"
+                                     style="margin-top: 2em;">
                                         <a href="{{ request.session.login_toggle|default:'/account/login' }}">
                                             {{ request.session.login_toggle_label|default:'Sign in' }}
                                         </a>
