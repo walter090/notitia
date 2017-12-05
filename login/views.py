@@ -1,6 +1,5 @@
 import json
 
-from django.http import HttpResponseRedirect
 from django.views.generic import FormView
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login
@@ -15,7 +14,7 @@ class LoginView(FormView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name,
                       context={
-                          'section_name': 'Sign in'
+                          'section_name': _('Sign in')
                       })
 
     def post(self, request, *args, **kwargs):
@@ -26,14 +25,12 @@ class LoginView(FormView):
                             password=login_password)
         if user is not None:
             login(request, user=user)
-            return render(request, kwargs['target_template'],
-                          context={
-                              'section_name': kwargs['section_name'],
-                          })
+            return render(request,
+                          request.session['target_template'])
         else:
             return render(request, self.template_name,
                           context={
-                              'submitted': 'Email or password is not correct.',
+                              'submitted': _('Email or password is not correct.'),
                           })
 
 
@@ -43,7 +40,7 @@ class SignupView(FormView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name,
                       context={
-                          'section_name': 'Register',
+                          'section_name': _('Register'),
                       })
 
     def post(self, request, *args, **kwargs):
@@ -58,7 +55,7 @@ class SignupView(FormView):
             # user.save()
             return render(request, LoginView.template_name,
                           context={
-                              'registered': 'Welcome!'
+                              'registered': _('Welcome!'),
                           })
 
         errors_dict = json.loads(signup_form.errors.as_json())
@@ -81,9 +78,17 @@ class AccountView(FormView):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name,
                       context={
-                          'section_name': 'Account',
+                          'section_name': _('Account'),
                           'modal_template': 'account_modal.html',
                       })
 
     def post(self, request, *args, **kwargs):
         raise NotImplementedError
+
+
+# class MasterView(object):
+#     """
+#     This view should handle core tasks of all views.
+#     """
+#     # TODO Implement a master view that all views inherit from.
+#     raise NotImplementedError
