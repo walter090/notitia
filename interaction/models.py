@@ -11,7 +11,7 @@ class Post(models.Model):
     # Use default id as primary key
     id = models.AutoField(primary_key=True)
     created_by = models.ForeignKey(User,
-                                   null=True)
+                                   null=True, on_delete=models.CASCADE)
     publish_time = models.DateTimeField(_('publish time'),
                                         default=timezone.now)
     last_modified_time = models.DateTimeField(_('last modified time'),
