@@ -16,7 +16,7 @@ $(document).ready(function () {
         content.removeClass('disable_all');
         $('#quick_login').removeAttr('disabled');
         event.stopPropagation();
-    })
+    });
 });
 
 function checkEmpty(className, targetID) {
