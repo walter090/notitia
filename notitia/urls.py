@@ -24,7 +24,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^account/', include('login.urls')),
     url(r'^welcome/', include('mailing.urls')),
-    url(r'^$', RedirectView.as_view(url=r'login/', permanent=False)),
+    url(r'^$', RedirectView.as_view(url=r'account/', permanent=False)),
     url(r'^tinymce/', include('tinymce.urls')),
     url(r'^new-story/', include('interaction.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
