@@ -17,14 +17,14 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import RedirectView
+from django.urls import path
 
 from . import settings
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^account/', include('login.urls')),
-    url(r'^welcome/', include('mailing.urls')),
-    url(r'^$', RedirectView.as_view(url=r'account/', permanent=False)),
-    url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^new-story/', include('interaction.urls'))
+    path('admin/', admin.site.urls),
+    path('account/', include('login.urls')),
+    path('welcome/', include('mailing.urls')),
+    path('', RedirectView.as_view(url=r'account/', permanent=False)),
+    path('new-story/', include('interaction.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
