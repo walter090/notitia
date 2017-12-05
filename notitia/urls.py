@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import include
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import RedirectView
@@ -25,6 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('account/', include('login.urls')),
     path('welcome/', include('mailing.urls')),
-    path('', RedirectView.as_view(url=r'account/', permanent=False)),
-    path('new-story/', include('interaction.urls'))
+    path('', RedirectView.as_view(url=r'account/', permanent=False), name='home'),
+    path('new-story/', include('interaction.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
